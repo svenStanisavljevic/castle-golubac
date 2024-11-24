@@ -38,8 +38,17 @@ body {
   z-index: 0;
 }
 
+.content {
+  position: relative;
+  z-index: 1;
+}
+
 h1, h2 {
   margin-bottom: 20px;
+  font-family: "Macondo Swash Caps", cursive;
+  font-weight: 400;
+  font-size: 5rem;
+  font-style: normal;
 }
 
 .menu-btn {
