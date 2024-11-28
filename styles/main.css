@@ -2,12 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Macondo Swash Caps", cursive;
+  font-weight: 400;
 }
 
 body {
   font-family: 'Arial', sans-serif;
   background: #333;
-  color: #fff;
+  color: #ffd700;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -51,9 +53,14 @@ h1, h2 {
   font-style: normal;
 }
 
+button {
+  font-family: "Macondo Swash Caps", cursive;
+  font-weight: 400;
+}
+
 .menu-btn {
-  background: #444;
-  color: #fff;
+  background: #8b4513;
+  color: #ffd700;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -68,4 +75,17 @@ h1, h2 {
 
 input, button {
   font-size: 1em;
+}
+
+.hidden {
+  display: none;
+}
+
+.player-name-input {
+  display: block; 
+  margin: 10px 0; 
+  padding: 8px; 
+  font-size: 16px; 
+  width: 100%; 
+  box-sizing: border-box; 
 }

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Main Menu</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap" rel="stylesheet">
@@ -12,10 +13,35 @@
 <body>
   <div class="fullscreen-container">
     <div class="background-image"></div>
-    <div class="content">
+    <div id="landing" class="content">
       <h1>Castle Golubac</h1>
-      <button id="playGame" class="menu-btn">Play Game</button>
+      <button id="playGame" class="menu-btn" onclick="showPlayerSetup()">Play Game</button>
       <button id="settings" class="menu-btn">Settings</button>
+    </div>
+
+    <!-- Player Setup Screen -->
+    <div id="playerSetup" class="content hidden">
+      <h2>Player Setup</h2>
+      <label for="playerCount">Enter number of players:</label>
+      <input type="number" id="playerCount" min="2" max="10" placeholder="Enter a number">
+      <button id="startGame" class="menu-btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="playerNamesSetup" class="content hidden">
+      <h2>Enter Player Names</h2>
+      <form id="playerNamesForm">
+        <!-- Player name inputs will be dynamically added here -->
+      </form>
+      <button id="confirmNames" class="menu-btn" onclick="confirmNames()">Confirm Names</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game" class="content hidden">
+      <h2 id="playerName"></h2>
+      <p id="prompt">It's your turn!</p>
+      <button id="showRoleButton" class="menu-btn" onclick="showRole()">Show My Role</button>
+      <p id="playerRole" class="hidden"></p>
+      <button id="nextPlayerButton" class="menu-btn hidden" onclick="nextPlayer()">Next Player</button>
     </div>
   </div>
 
