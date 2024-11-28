@@ -1,97 +1,65 @@
-// Role mapping: IDs to role names
-const ROLES = {
-  1: "King",
-  2: "Assassin",
-  3: "Wizard",
-  4: "Apothecary",
-  5: "Guard",
-  6: "Nobleman",
-  7: "Spy",
-  8: "Blacksmith",
-  9: "Merchant",
-  10: "Bard",
-};
-
-// Player class definition
-class Player {
-  constructor(name, roleId) {
-    this.playerName = name;
-    this.playerRoleId = roleId; // Randomly assigned role ID (1-10)
-    this.playerRoleName = ROLES[roleId]; // Map ID to role name
-    this.playerStatus = "alive"; // Default status
-  }
-}
-
 let players = [];
 let currentIndex = 0;
 
-// Show the player setup screen
-function showPlayerSetup() {
-  document.getElementById("landing").classList.add("hidden");
-  document.getElementById("playerSetup").classList.remove("hidden");
-}
-
-// Start the game after entering player count
+// Initialize players with random roles
 function startGame() {
   const playerCount = parseInt(document.getElementById("playerCount").value);
-
   if (isNaN(playerCount) || playerCount < 2) {
     alert("Please enter a valid number of players (minimum 2).");
     return;
   }
 
-  // Initialize players with placeholder names and random roles
   players = Array.from({ length: playerCount }, (_, i) => {
-    const roleId = Math.floor(Math.random() * 10) + 1; // Random number 1-10
+    const roleId = Math.floor(Math.random() * 10) + 1;
     return new Player(`Player ${i + 1}`, roleId);
   });
 
-  // Dynamically create input fields for player names
+  // Create name inputs
   const form = document.getElementById("playerNamesForm");
-  form.innerHTML = ""; // Clear previous inputs
+  form.innerHTML = "";
   players.forEach((player, index) => {
     const input = document.createElement("input");
     input.type = "text";
     input.placeholder = `Enter name for ${player.playerName}`;
     input.id = `playerNameInput${index}`;
-    input.classList.add("player-name-input");
+    input.classList.add("player-name-input"); 
     input.required = true;
     form.appendChild(input);
   });
 
-  // Switch screens
+  // Show the name entry screen
   document.getElementById("playerSetup").classList.add("hidden");
   document.getElementById("playerNamesSetup").classList.remove("hidden");
 }
 
-// Confirm player names and begin the game
+// Confirm names and proceed to game screen
 function confirmNames() {
   const form = document.getElementById("playerNamesForm");
   const inputs = form.querySelectorAll("input");
 
-  // Update player names from the input fields
+  // Update player names
   inputs.forEach((input, index) => {
-    players[index].playerName = input.value || `Player ${index + 1}`; // Default name if empty
+    players[index].playerName = input.value || `Player ${index + 1}`;
   });
 
-  // Switch to the game screen
+  // Switch to game screen
   document.getElementById("playerNamesSetup").classList.add("hidden");
   document.getElementById("game").classList.remove("hidden");
 
-  showPlayer(); // Start with the first player
+  showPlayer();
 }
 
-// Show the current player's turn
+// Show the current player's info
 function showPlayer() {
   const player = players[currentIndex];
   document.getElementById("playerName").textContent = player.playerName;
+  document.getElementById("prompt").textContent = `It's your turn, ${player.playerName}!`;
   document.getElementById("playerRole").classList.add("hidden");
   document.getElementById("showRoleButton").classList.remove("hidden");
   document.getElementById("nextPlayerButton").classList.add("hidden");
-  document.getElementById("prompt").textContent = `It's your turn, ${player.playerName}!`;
 }
 
-// Reveal the current player's role
+// Reveal player's role
 function showRole() {
   const player = players[currentIndex];
   document.getElementById("playerRole").textContent = `Your role: ${player.playerRoleName}`;
@@ -100,14 +68,13 @@ function showRole() {
   document.getElementById("nextPlayerButton").classList.remove("hidden");
 }
 
-// Proceed to the next player's turn
+// Move to next player
 function nextPlayer() {
   currentIndex++;
   if (currentIndex >= players.length) {
     alert("All players have seen their roles. The game begins!");
-    // Logic to transition to the actual game phase can be added here
+    // Game logic can proceed here
     return;
   }
-
   showPlayer();
 }
