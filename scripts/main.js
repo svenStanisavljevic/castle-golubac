@@ -1,16 +1,4 @@
-// Role mapping: IDs to role names
-const ROLES = {
-  1: "King",
-  2: "Assassin",
-  3: "Wizard",
-  4: "Apothecary",
-  5: "Guard",
-  6: "Nobleman",
-  7: "Spy",
-  8: "Blacksmith",
-  9: "Merchant",
-  10: "Bard",
-};
+import { ROLES } from './config.js';
 
 // Player class definition
 class Player {
