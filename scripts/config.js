@@ -1,4 +1,4 @@
-const ROLES = {
+export const ROLES = {
   1: "King",
   2: "Assassin",
   3: "Wizard",
