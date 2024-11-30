@@ -10,3 +10,10 @@ export const ROLES = {
   9: "Servant",
   10: "Heir",
 };
+
+export const WEAPONS = {
+  1: "Dagger",
+  2: "Crossbow",
+  3: "Poisoned Chalice",
+  4: "Spiked Armor",
+};
