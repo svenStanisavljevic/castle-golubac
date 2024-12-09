@@ -17,3 +17,26 @@ export const WEAPONS = {
   3: "Poisoned Chalice",
   4: "Spiked Armor",
 };
+
+export const ROLE_ACTIONS = {
+  spy: {
+    description: "You are a Spy. Select a player to spy on:",
+    formFields: [
+      {
+        label: "Target Player",
+        type: "dropdown", 
+        id: "targetPlayerSelect",
+      },
+    ],
+  },
+  healer: {
+    description: "You are a Healer. Select a player to heal:",
+    formFields: [
+      {
+        label: "Target Player",
+        type: "dropdown",
+        id: "targetPlayerSelect",
+      },
+    ],
+  },
+};

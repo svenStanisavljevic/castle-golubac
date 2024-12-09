@@ -12,10 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap" rel="stylesheet">
 </head>
 <body>
-  <audio autoplay loop hidden>
-    
-    Your browser does not support the audio element.
-  </audio>
 
   <div class="fullscreen-container">
     <div class="background-image"></div>
@@ -25,7 +21,6 @@
       <button id="settings" class="menu-btn">Settings</button>
     </div>
 
-    <!-- Player Setup Screen -->
     <div id="playerSetup" class="content hidden">
       <h2>Player Setup</h2>
       <label for="playerCount">Enter number of players:</label>
@@ -36,19 +31,36 @@
     <div id="playerNamesSetup" class="content hidden">
       <h2>Enter Player Names</h2>
       <form id="playerNamesForm">
-        <!-- Player name inputs will be dynamically added here -->
+        <!-- Player inputs injected here -->
       </form>
       <button id="confirmNames" class="menu-btn">Confirm Names</button>
     </div>
 
-    <!-- Game Screen -->
-    <div id="game" class="content hidden">
+    <div id="roleCall" class="content hidden">
       <h2 id="playerName"></h2>
       <p id="prompt">It's your turn!</p>
       <button id="showRoleButton" class="menu-btn">Show My Role</button>
       <p id="playerRole" class="hidden"></p>
       <button id="nextPlayerButton" class="menu-btn hidden">Next Player</button>
     </div>
+
+    <div id="gameLoop" class="content hidden">
+      <h2 id="nightPrompt">Night 1 is upon us!</h2>
+      <button id="continueToNight" class="menu-btn">Continue</button>
+
+      <div id="playerTurn" class="hidden">
+        <h2 id="currentPlayerPrompt">Player 1's Turn</h2>
+        <button id="startTurn" class="menu-btn">Start Turn</button>
+      </div>
+
+      <div id="roleInteraction" class="hidden">
+        <h3 id="roleDescription"></h3>
+        <form id="roleForm">
+          <!-- Form fields injected here -->
+        </form>
+      </div>
+    </div>
+
   </div>
 
   <audio id="bgAudio" loop>
@@ -59,7 +71,6 @@
   <div id="audioToggle" class="audio-toggle">
     <i id="toggleIcon" class="fas fa-volume-mute"></i>
   </div>
-
 
   <script type="module" src="scripts/main.js"></script>
 </body>
