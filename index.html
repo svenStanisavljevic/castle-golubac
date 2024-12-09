@@ -8,11 +8,12 @@
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap" rel="stylesheet">
 </head>
 <body>
   <audio autoplay loop hidden>
-    <source src="assets/main-title.mp3" type="audio/mp3">
+    
     Your browser does not support the audio element.
   </audio>
 
@@ -20,7 +21,7 @@
     <div class="background-image"></div>
     <div id="landing" class="content">
       <h1>Castle Golubac</h1>
-      <button id="playGame" class="menu-btn" onclick="showPlayerSetup()">Play Game</button>
+      <button id="playGame" class="menu-btn">Play Game</button>
       <button id="settings" class="menu-btn">Settings</button>
     </div>
 
@@ -29,7 +30,7 @@
       <h2>Player Setup</h2>
       <label for="playerCount">Enter number of players:</label>
       <input type="number" id="playerCount" min="2" max="10" placeholder="Enter a number">
-      <button id="startGame" class="menu-btn" onclick="startGame()">Start Game</button>
+      <button id="startGame" class="menu-btn">Start Game</button>
     </div>
 
     <div id="playerNamesSetup" class="content hidden">
@@ -37,18 +38,28 @@
       <form id="playerNamesForm">
         <!-- Player name inputs will be dynamically added here -->
       </form>
-      <button id="confirmNames" class="menu-btn" onclick="confirmNames()">Confirm Names</button>
+      <button id="confirmNames" class="menu-btn">Confirm Names</button>
     </div>
 
     <!-- Game Screen -->
     <div id="game" class="content hidden">
       <h2 id="playerName"></h2>
       <p id="prompt">It's your turn!</p>
-      <button id="showRoleButton" class="menu-btn" onclick="showRole()">Show My Role</button>
+      <button id="showRoleButton" class="menu-btn">Show My Role</button>
       <p id="playerRole" class="hidden"></p>
-      <button id="nextPlayerButton" class="menu-btn hidden" onclick="nextPlayer()">Next Player</button>
+      <button id="nextPlayerButton" class="menu-btn hidden">Next Player</button>
     </div>
   </div>
+
+  <audio id="bgAudio" loop>
+    <source src="assets/main-title.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="audioToggle" class="audio-toggle">
+    <i id="toggleIcon" class="fas fa-volume-mute"></i>
+  </div>
+
 
   <script type="module" src="scripts/main.js"></script>
 </body>

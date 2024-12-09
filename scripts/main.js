@@ -1,17 +1,29 @@
 import { ROLES } from './config.js';
+import { setupAudioControls } from './audioControls.js'
 
 // Player class definition
 class Player {
   constructor(name, roleId) {
     this.playerName = name;
-    this.playerRoleId = roleId; // Randomly assigned role ID (1-10)
-    this.playerRoleName = ROLES[roleId]; // Map ID to role name
-    this.playerStatus = "alive"; // Default status
+    this.playerRoleId = roleId; 
+    this.playerRoleName = ROLES[roleId]; 
+    this.playerStatus = "alive";
   }
 }
 
 let players = [];
 let currentIndex = 0;
+
+// Input listeners
+document.getElementById('playGame').addEventListener('click', showPlayerSetup);
+document.getElementById('startGame').addEventListener('click', startGame);
+document.getElementById('confirmNames').addEventListener('click', confirmNames);
+document.getElementById('showRoleButton').addEventListener('click', showRole);
+document.getElementById('nextPlayerButton').addEventListener('click', nextPlayer);
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupAudioControls();
+});
 
 // Show the player setup screen
 function showPlayerSetup() {
